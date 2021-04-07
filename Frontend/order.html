@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="">
         <script src="https://kit.fontawesome.com/b4d0919e04.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Song+Myung&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
         <title>Oritoy - Ours en peluche - Commande</title>
     </head>
@@ -12,7 +14,8 @@
     <body>
         <div class="bloc-page">
             <header class="header">
-                <div class="titre_principal">
+                <div class="header__logotitle">
+                    <img src="images/logo_orinoco.png">
                     <h1>Oritoy - Vente d'ours en peluche</h1>
                 </div>
                 <nav class="header__nav">
@@ -22,11 +25,41 @@
                     </ul>
                 </nav>
             </header>
-            <main>
-
+            <main class="order">
+                <section class="order__conteneur">
+                    <article class="order__img">
+                        <figure>
+                            <img src="images/teddy_1.jpg">
+                        </figure>
+                    </article>
+                    <aside class="produit">
+                        <div class="produit__texte">
+                            <h2 class="produit__title">Titre du produit</h2>
+                            <p class="produit__description">Description du produit</p>
+                        </div>
+                        <div class="produit__quantité">
+                            <label for="ours">Quantité</label>
+                            <input type="number" id="ours" name="ours">
+                        </div>
+                        <div class="produit__couleur">
+                            <label for="ours">Couleurs</label>
+                            <input type="color" value="#ff0000">
+                        </div>
+                        <div class="produit__prix">
+                            <p>Prix du produit</p>
+                        </div>
+                        <button class="bouton__panier">Ajouter au panier</button>
+                    </aside>
+                </section>
             </main>
-            <footer>
-                
+            <footer class="footer">
+                <nav class="footer__nav">
+                    <ul class="footer__list">
+                        <li class="footer__link"><a href="#">A propos</a></li>
+                        <li class="footer__link"><a href="#">Contact</a></li>
+                        <li class="footer__link"><a href="#">Conditions d'utilisation</a></li>
+                    </ul>
+                </nav>
             </footer>
         </div>
     </body>

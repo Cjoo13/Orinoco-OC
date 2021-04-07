@@ -57,6 +57,14 @@ a
     margin-bottom: 20px;
     padding-left: 20px;
     }
+    &__order {
+        display: flex;
+        justify-content: center;
+        border: 1px solid #000;
+    }
+    img {
+        width: 500px;
+    }
 }
 
 .selection
@@ -112,4 +120,43 @@ a
             margin-left: 100px;
         }
     }
+}
+
+.order {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: lighten($background-color, 5);
+    &__conteneur {
+        display: flex;
+        justify-content: center;
+        border: 1px solid #000;
+        img {
+                width: 500px;
+            }
+    }
+}
+
+.produit {
+    margin-left: 10px;
+    &__title {
+        padding-top: 15px;
+    }
+    &__description {
+        padding-top: 20px;
+    }
+    &__quantité {
+        padding-top: 50px;
+    }
+    &__couleur {
+        padding-top: 10px;
+    }
+    &__prix {
+        margin-top: 20px;
+    }
+}
+
+.bouton__panier {
+    margin-top: 20px;
 }

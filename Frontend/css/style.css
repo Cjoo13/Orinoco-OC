@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body, nav, ul, p, h2, h3, h1, figure {
   margin: 0;
   padding: 0;
@@ -65,6 +66,20 @@ a {
 .conteneur__title {
   margin-bottom: 20px;
   padding-left: 20px;
+}
+
+.conteneur__order {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid #000;
+}
+
+.conteneur img {
+  width: 500px;
 }
 
 .selection {
@@ -149,5 +164,59 @@ a {
 
 .footer__list li {
   margin-left: 100px;
+}
+
+.order {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #fcfafc;
+}
+
+.order__conteneur {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid #000;
+}
+
+.order__conteneur img {
+  width: 500px;
+}
+
+.produit {
+  margin-left: 10px;
+}
+
+.produit__title {
+  padding-top: 15px;
+}
+
+.produit__description {
+  padding-top: 20px;
+}
+
+.produit__quantité {
+  padding-top: 50px;
+}
+
+.produit__couleur {
+  padding-top: 10px;
+}
+
+.produit__prix {
+  margin-top: 20px;
+}
+
+.bouton__panier {
+  margin-top: 20px;
 }
 /*# sourceMappingURL=style.css.map */
