@@ -26,13 +26,61 @@
                 </nav>
             </header>
             <main>
-                <section>
-                    <div>
-                        
+                <section class="resume">
+                    <div class="resume__achat">
+                        <div class="resume__produit">
+                            <h2 class="resume__titre">Nom du produit</h2>
+                            <p class="resume__quantité">Quantité</p>
+                            <p class="resume__couleur">Couleur</p>
+                        </div>
+                        <div class="resume__prix">
+                            <p>Prix du produit</p>
+                        </div>
+                        <div class="resume__sup">
+                            <button>Supprimer l'article</button>
+                        </div>
+                    </div>
+                    <div class="resume__achat">
+                        <div class="resume__produit">
+                            <h2 class="resume__titre">Nom du produit</h2>
+                            <p class="resume__quantité">Quantité</p>
+                            <p class="resume__couleur">Couleur</p>
+                        </div>
+                        <div class="resume__prix">
+                            <p>Prix du produit</p>
+                        </div>
+                        <div class="resume__sup">
+                            <button>Supprimer l'article</button>
+                        </div>
+                    </div>
+                    <div class="resume__total">
+                        <p>Prix total</p>
                     </div>
                 </section>
-                <section>
-
+                <section class="formulaire">
+                    <form action="" method="POST">
+                        <div class="formulaire__cartouche">
+                            <label for="name">Nom :</label>
+                            <input type="text" id="name" name="user_name">
+                        </div>
+                        <div class="formulaire__cartouche">
+                            <laber for="surname">Prénom :</laber>
+                            <input type="text" id="surname" name="user_surname">
+                        </div>
+                        <div class="formulaire__cartouche">
+                            <label for="adress">Adresse :</label>
+                            <input type="text" id="adress" name="user_adress">
+                        </div>
+                        <div class="formulaire__cartouche">
+                            <label for="city">Ville :</label>
+                            <input type="text" id="city" name="user_city">
+                        </div>
+                        <div class="formulaire__cartouche">
+                            <label for="mail">Email :</label>
+                            <input type="mail" id="mail" name="user_mail">
+                        </div>
+                    </form>
+                    <button class="commander">Valider ma commande</button>
                 </section>
             </main>
             <footer class="footer">

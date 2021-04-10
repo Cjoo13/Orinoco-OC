@@ -22,6 +22,10 @@ a
     margin: auto;
 }
 
+main {
+    background-color: lighten($background-color, 5);
+}
+
 .header
 {
     display: flex;
@@ -52,7 +56,6 @@ a
 .conteneur
 {
     padding-top: 50px;
-    background-color: lighten($background-color, 5);
     &__title {
     margin-bottom: 20px;
     padding-left: 20px;
@@ -74,7 +77,7 @@ a
     justify-content: center;
     &__pic {
         margin: 20px;
-        width: 410px;
+        width: 439px;
         height: 440px;
         border: 1px solid #000;
         display: flex;
@@ -83,12 +86,10 @@ a
         flex-flow: column;
     }
     &__figcaption {
-        padding-bottom: 50px;
         margin-top: 10px;
-        margin-left: 10px;
     }
     &__texte {
-        padding-bottom: 20px;
+        padding-left: 10px;
     }
     &__nom {
         font-size: 23px;
@@ -96,15 +97,18 @@ a
     &__afficher {
         display: flex;
         justify-content: center;
+        height: 50px;
+        align-items: center;
         a {
             color: blue;
             text-decoration: underline;
         }
     }
     img {
-        width: 410px;
-        height: 288px;
+        width: 439px;
+        height: 331px;
         object-fit: cover;
+        border-bottom: 1px solid;
     }
 }
 
@@ -132,9 +136,17 @@ a
         display: flex;
         justify-content: center;
         border: 1px solid #000;
+    }
+    &__img {
+        figure {
+            height: 324px;
+        }
         img {
-                width: 500px;
-            }
+            width: 500px;
+            height: 324px;
+            border-right: 1px solid;
+            object-fit: cover;
+        }
     }
 }
 
@@ -158,5 +170,41 @@ a
 }
 
 .bouton__panier {
+    margin-top: 20px;
+}
+
+.resume {
+    padding-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    &__achat {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 30px;
+        border: 1px solid;
+        align-items: center;
+        border-radius: 50px;
+        height: 100px;
+        width: 800px;
+    }
+    &__total {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+    &__cartouche {
+        margin-bottom: 15px;
+    }
+}
+
+.commander {
     margin-top: 20px;
 }
