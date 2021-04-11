@@ -129,21 +129,20 @@ main {
 .order {
     display: flex;
     justify-content: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     background-color: lighten($background-color, 5);
     &__conteneur {
         display: flex;
         justify-content: center;
         border: 1px solid #000;
+        height: 400px;
+        box-shadow: 3px 3px 12px rgba(0,0,0,.5);
     }
     &__img {
-        figure {
-            height: 324px;
-        }
         img {
             width: 500px;
-            height: 324px;
+            height: 400px;
             border-right: 1px solid;
             object-fit: cover;
         }
@@ -162,15 +161,15 @@ main {
         padding-top: 50px;
     }
     &__couleur {
-        padding-top: 10px;
+        padding-top: 20px;
     }
     &__prix {
-        margin-top: 20px;
+        margin-top: 40px;
     }
 }
 
 .bouton__panier {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .resume {
@@ -188,6 +187,7 @@ main {
         border-radius: 50px;
         height: 100px;
         width: 800px;
+        box-shadow: 3px 3px 12px rgba(0,0,0,.5);
     }
     &__total {
         display: flex;
@@ -207,4 +207,11 @@ main {
 
 .commander {
     margin-top: 20px;
+}
+
+.conf-main {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
