@@ -1,4 +1,9 @@
 $background-color: #F3E9F1;
+$primary-color: #E58A0B;
+$secondary-color: #8F5BFE;
+$button-color: linear-gradient(to bottom right, $primary-color, $secondary-color);
+
+
 
 
 body, nav, ul, p, h2, h3, h1, figure
@@ -32,14 +37,27 @@ main {
     justify-content: space-between;
     padding: 20px;
     background-color: $background-color;
+    flex-wrap: wrap;
     &__logotitle {
         display: flex;
         img {
             width: 150px;
             margin-right: 20px;
+            @media(min-width: 320px) and (max-width: 600px) {
+                width: 100px;
+                height: 50px;
+            }
         }
         h1 {
             align-self: center;
+            @media(min-width: 320px) and (max-width: 600px) {
+                font-size: 20px;
+            }
+        }
+    }
+    &__nav {
+        @media(min-width: 320px) and (max-width: 1000px) {
+            width: 100%;
         }
     }
     &__list {
@@ -47,23 +65,34 @@ main {
 	    list-style-type: none;
         display: flex;
         margin-top: 25px;
+        @media(min-width: 320px) and (max-width: 1000px) {
+            justify-content: space-around;
+        }
+        a {
+            @media(min-width: 320px) and (max-width: 600px) {
+                font-size: 16px;
+            }
+        }
     }
     &__link {
         padding-left: 20px;
+        i {
+            margin-right: 5px;
+        }
     }
 }
 
 .conteneur
 {
     padding-top: 50px;
+    @media(min-width: 320px) and (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
     &__title {
     margin-bottom: 20px;
     padding-left: 20px;
-    }
-    &__order {
-        display: flex;
-        justify-content: center;
-        border: 1px solid #000;
     }
     img {
         width: 500px;
@@ -84,6 +113,11 @@ main {
         justify-content: center;
         box-shadow: 3px 3px 12px rgba(0,0,0,.5);
         flex-flow: column;
+        @media(min-width: 320px) and (max-width: 600px) {
+            width: 300px;
+            height: 333px;
+        }
+        
     }
     &__figcaption {
         margin-top: 10px;
@@ -109,6 +143,10 @@ main {
         height: 331px;
         object-fit: cover;
         border-bottom: 1px solid;
+        @media(min-width: 320px) and (max-width: 600px) {
+            width: 300px;
+            height: 300px;
+        }
     }
 }
 
@@ -120,6 +158,9 @@ main {
     &__list {
         display: flex;
         justify-content: center;
+        @media(min-width: 320px) and (max-width: 600px) {
+            flex-direction: column;
+        }
         li {
             margin-left: 100px;
         }
@@ -138,6 +179,12 @@ main {
         border: 1px solid #000;
         height: 400px;
         box-shadow: 3px 3px 12px rgba(0,0,0,.5);
+        @media(min-width: 320px) and (max-width: 800px) {
+            width: 300px;
+            height: 600px;
+            flex-direction: column;
+        }
+        
     }
     &__img {
         img {
@@ -145,12 +192,22 @@ main {
             height: 400px;
             border-right: 1px solid;
             object-fit: cover;
+            @media(min-width: 320px) and (max-width: 800px) {
+                width: 300px;
+                height: 232px;
+                border-bottom: 1px solid;
+            }
         }
     }
 }
 
 .produit {
     margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    @media(min-width: 320px) and (max-width: 800px) {
+        align-items: center;
+    }
     &__title {
         padding-top: 15px;
     }
@@ -166,10 +223,21 @@ main {
     &__prix {
         margin-top: 40px;
     }
+    input {
+        width: 30px;
+    }
 }
 
 .bouton__panier {
     margin-top: 50px;
+    background: $button-color;
+    border-radius: 50px;
+    height: 50px;
+    width: 150px;
+    align-self: center;
+    color: #FFFF;
+    cursor: pointer;
+    box-shadow: 1px 1px 12px rgba(0,0,0,.5);
 }
 
 .resume {
@@ -188,10 +256,23 @@ main {
         height: 100px;
         width: 800px;
         box-shadow: 3px 3px 12px rgba(0,0,0,.5);
+        @media(min-width: 320px) and (max-width: 800px) {
+            width: 300px;
+            height: 230px;
+            flex-direction: column;
+        }
+    }
+    &__sup {
+        background: red;
+        color: #FFFF;
+        height: 50px;
+        width: 150px;
+        cursor: pointer;
     }
     &__total {
         display: flex;
         justify-content: center;
+        font-size: 25px;
     }
 }
 
@@ -202,11 +283,20 @@ main {
     padding-bottom: 30px;
     &__cartouche {
         margin-bottom: 15px;
+        font-size: 20px;
     }
 }
 
 .commander {
     margin-top: 20px;
+    background: $button-color;
+    border-radius: 50px;
+    height: 60px;
+    width: 280px;
+    cursor: pointer;
+    a {
+        color: white;
+    }
 }
 
 .conf-main {
@@ -214,4 +304,14 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.confirmation {
+    margin-left: 10px;
+    &__titre {
+        margin-bottom: 20px;
+    }
+    &__texte {
+        margin-bottom: 20px;
+    }
 }
