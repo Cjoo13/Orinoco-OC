@@ -31,6 +31,25 @@ main {
     background-color: lighten($background-color, 5);
 }
 
+.plus {
+    display: flex;
+    border: 1px solid;
+    justify-content: center;
+    width: 25px;
+    align-items: center;
+    padding-right: 7px;
+    height: 20px;
+}
+
+.moins {
+    display: flex;
+    border: 1px solid;
+    justify-content: center;
+    width: 25px;
+    height: 20px;
+    align-items: center;
+}
+
 .header
 {
     display: flex;
@@ -38,11 +57,13 @@ main {
     padding: 20px;
     background-color: $background-color;
     flex-wrap: wrap;
+    align-items: center;
     &__logotitle {
         display: flex;
         img {
             width: 150px;
             margin-right: 20px;
+            height: 70px;
             @media(min-width: 320px) and (max-width: 600px) {
                 width: 100px;
                 height: 50px;
@@ -218,6 +239,20 @@ main {
     }
     &__quantité {
         padding-top: 50px;
+        display: flex;
+    }
+    &__posneg {
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        i {
+            cursor: pointer;
+        }
+        .fa-plus {
+            padding-left: 10px;
+        }
     }
     &__couleur {
         padding-top: 20px;
@@ -255,7 +290,7 @@ main {
         border: 1px solid;
         align-items: center;
         border-radius: 50px;
-        height: 100px;
+        height: 150px;
         width: 800px;
         box-shadow: 3px 3px 12px rgba(0,0,0,.5);
         @media(min-width: 320px) and (max-width: 800px) {
@@ -264,8 +299,19 @@ main {
             flex-direction: column;
         }
     }
+    &__titre {
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+    &__quantite {
+        display: flex;
+        margin-bottom: 10px;
+    }
+    &__couleur {
+        margin-bottom: 10px;
+    }
     &__sup {
-        background: red;
+        background: #BE7579;
         color: #FFFF;
         height: 50px;
         width: 150px;
@@ -314,6 +360,9 @@ main {
         margin-bottom: 20px;
     }
     &__texte {
+        margin-bottom: 20px;
+    }
+    &__num {
         margin-bottom: 20px;
     }
 }
