@@ -34,7 +34,7 @@ async function listeAllTeddies() {
         listeOurs.appendChild(produitFigure);
 
         let produitImg = document.createElement("img");
-        produitImg.setAttribute("src", teddy.imageUrl);
+        produitImg.setAttribute("src", );
         produitImg.setAttribute("alt", "Image d'ours en peluche");
         produitFigure.appendChild(produitImg);
 
