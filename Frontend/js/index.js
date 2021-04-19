@@ -34,7 +34,7 @@ async function listeAllTeddies() {
         listeOurs.appendChild(produitFigure);
 
         let produitImg = document.createElement("img");
-        produitImg.setAttribute("src", );
+        produitImg.setAttribute("src", teddy.imageUrl);
         produitImg.setAttribute("alt", "Image d'ours en peluche");
         produitFigure.appendChild(produitImg);
 
@@ -49,10 +49,12 @@ async function listeAllTeddies() {
         let produitNom = document.createElement("h3");
         produitNom.setAttribute("class", "selection__nom");
         produitTexte.appendChild(produitNom);
+        produitNom.textContent = teddy.name;
 
         let produitPrix = document.createElement("p");
         produitPrix.setAttribute("class", "selection__prix");
         produitTexte.appendChild(produitPrix);
+        produitPrix.textContent = teddy.price;
 
         let produitAfficher = document.createElement("div");
         produitAfficher.setAttribute("class", "selection__afficher");
