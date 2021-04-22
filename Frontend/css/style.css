@@ -154,7 +154,7 @@ main {
   }
 }
 
-.conteneur__title {
+.conteneur__div {
   margin-bottom: 20px;
   padding-left: 20px;
 }
@@ -471,7 +471,7 @@ main {
   margin-bottom: 10px;
 }
 
-.resume__sup {
+.resume__sup-button {
   background: #BE7579;
   color: #FFFF;
   height: 50px;

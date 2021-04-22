@@ -1,5 +1,5 @@
 export {callApi, listeAllTeddies};
-import {url} from './main.js';
+import {url} from 'main.js';
 
 let allTeddies
 function callApi () {
@@ -23,11 +23,24 @@ function callApi () {
 async function listeAllTeddies() {
     const teddies = await allTeddies;
     teddies.forEach(teddy => {
+        let blocPage = document.getElementById("bloc-page");
+
+        let conteneurOurs = document.createElement("main");
+        conteneurOurs.setAttribute("class", "conteneur"); 
+        blocPage.appendChild(conteneurOurs);
+
+        let divTitre = document.createElement("div");
+        divTitre.setAttribute("class", "conteneur__div");
+        conteneurOurs.appendChild(divTitre);
+
+        let titrePage = document.createElement("h2");
+        titrePage.setAttribute("class", "conteneur__title");
+        divTitre.appendChild(titrePage);
+        titrePage.textContent = "Voici notre séléction d'ours en peluche :";
+
         let listeOurs = document.createElement("section");
         listeOurs.setAttribute("class", "selection");
-
-        let blocPage = document.getElementById("bloc-page");
-        blocPage.appendChild(listeOurs);
+        conteneurOurs.appendChild(listeOurs);
 
         let produitFigure = document.createElement("figure");
         produitFigure.setAttribute("class", "selection__pic");

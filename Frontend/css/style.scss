@@ -111,7 +111,7 @@ main {
         flex-direction: column;
         justify-content: center;
     }
-    &__title {
+    &__div {
     margin-bottom: 20px;
     padding-left: 20px;
     }
@@ -310,7 +310,7 @@ main {
     &__couleur {
         margin-bottom: 10px;
     }
-    &__sup {
+    &__sup-button {
         background: #BE7579;
         color: #FFFF;
         height: 50px;
