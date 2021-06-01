@@ -1,4 +1,4 @@
-import {url} from 'main.js';
+import {url} from '../js/main.js';
 export {test2};
 
 function test2 () {
@@ -65,8 +65,6 @@ function test2 () {
     resumePrix.setAttribute("class", "resume__prix-p");
     divResumePrix.appendChild(resumePrix);
 }
-
-
 
 
 

@@ -1,11 +1,11 @@
 export {callApi, listeAllTeddies};
-import {url} from 'main.js';
+import {url} from '../js/main.js';
 
 let allTeddies
 function callApi () {
     allTeddies = new Promise((resolve) => {
         let request = new XMLHttpRequest()
-    request.onreadystatechange = function () {
+    request.onload = function () {
         if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
             resolve(JSON.parse(this.responseText))
         } else {
@@ -23,24 +23,7 @@ function callApi () {
 async function listeAllTeddies() {
     const teddies = await allTeddies;
     teddies.forEach(teddy => {
-        let blocPage = document.getElementById("bloc-page");
-
-        let conteneurOurs = document.createElement("main");
-        conteneurOurs.setAttribute("class", "conteneur"); 
-        blocPage.appendChild(conteneurOurs);
-
-        let divTitre = document.createElement("div");
-        divTitre.setAttribute("class", "conteneur__div");
-        conteneurOurs.appendChild(divTitre);
-
-        let titrePage = document.createElement("h2");
-        titrePage.setAttribute("class", "conteneur__title");
-        divTitre.appendChild(titrePage);
-        titrePage.textContent = "Voici notre séléction d'ours en peluche :";
-
-        let listeOurs = document.createElement("section");
-        listeOurs.setAttribute("class", "selection");
-        conteneurOurs.appendChild(listeOurs);
+        let listeOurs = document.getElementById("selection");
 
         let produitFigure = document.createElement("figure");
         produitFigure.setAttribute("class", "selection__pic");
@@ -76,10 +59,12 @@ async function listeAllTeddies() {
         let produitDetails = document.createElement("p");
         produitDetails.setAttribute("class", "selection__details");
         produitAfficher.appendChild(produitDetails);
+        produitDetails.textContent = "Plus de détails";
 
         let produitLink = document.createElement("a");
-        produitLink.setAttribute("href", );
+        produitLink.setAttribute("href","" );
         produitDetails.appendChild(produitLink);
+        
     })
 }
 

@@ -1,4 +1,4 @@
-import {url} from 'main.js';
+import {url} from '../js/main.js';
 export {test};
 
 function test () {
@@ -71,7 +71,5 @@ function test () {
     divPlus.appendChild(plus);
 
 }
-
-
 
 

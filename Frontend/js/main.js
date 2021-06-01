@@ -1,6 +1,6 @@
-import {callApi, listeAllTeddies} from 'index.js';
-import {test} from 'order.js';
-import {test2} from 'checkout.js';
+import {callApi, listeAllTeddies} from '../js/index.js';
+import {test} from '../js/order.js';
+import {test2} from '../js/checkout.js';
 
 export const url = "http://localhost:3000/api/teddies";
 export class teddy {
@@ -13,3 +13,6 @@ export class teddy {
         this._id = _id;
     }
 };
+
+callApi();
+listeAllTeddies();
