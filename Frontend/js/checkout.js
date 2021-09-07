@@ -1,17 +1,9 @@
 import {url} from '../js/main.js';
-export {test2};
+export {panierTeddy};
 
-function test2 () {
+function panierTeddy () {
 
-    let blocPage = document.getElementById("bloc-page");
-
-    let mainCheckout = document.createElement("main");
-    mainCheckout.setAttribute("class", "checkout");
-    blocPage.appendChild(mainCheckout);
-
-    let checkoutResume = document.createElement("section");
-    checkoutResume.setAttribute("class", "resume");
-    mainCheckout.appendChild(checkoutResume);
+    let checkoutResume = document.getElementById("resumeCartouche");
 
     let achatResume = document.createElement("div");
     achatResume.setAttribute("class", "resume__achat");
@@ -64,6 +56,23 @@ function test2 () {
     let resumePrix = document.createElement("p");
     resumePrix.setAttribute("class", "resume__prix-p");
     divResumePrix.appendChild(resumePrix);
+
+    let checkoutFormulaire = document.getElementById("formulaire");
+
+    let form = document.createElement("form");
+    form.setAttribute("action", "hub");
+    form.setAttribute("method", "POST");
+    checkoutFormulaire.appendChild(form);
+
+    let formCartouche = document.createElement("div");
+    formCartouche.setAttribute("class", "formulaire__cartouche");
+    form.appendChild(formCartouche);
+
+    let formLabel = document.createElement("label");
+    formLabel.setAttribute("for", "name");
+    formCartouche.appendChild(formLabel);
+    formLabel.textContent = "Nom :";
+
 }
 
 

@@ -1,17 +1,38 @@
 import {url} from '../js/main.js';
-export {test};
+export {orderTeddy, recallApi, orderTeddi};
 
-function test () {
+let selectTeddy
+function recallApi() {
+    selectTeddy = new Promise((resolve) => {
+        let request = new XMLHttpRequest()
+    request.onload = function () {
+        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+            resolve(JSON.parse(this.responseText))
+        } else {
+            reject = console.log('erreur lors du chargement de la page')
+            return
+        }
+    }
 
-    let blocPage = document.getElementById("bloc-page");
+    request.open("GET", url);
+    request.send();
+    });
+}
 
-    let mainOrder = document.createElement("main");
-    mainOrder.setAttribute("class", "order");
-    blocPage.appendChild(mainOrder);
+async function orderTeddy () {
+    const teddies = await selectTeddy;
+}
 
-    let pageOrder = document.createElement("section");
-    pageOrder.setAttribute("class", "order__conteneur");
-    mainOrder.appendChild(pageOrder);
+async function orderTeddi () {
+    const teddies = await selectTeddy;
+    
+    var pathname = window.location.href; 
+    var id = pathname.split("?id");
+    
+
+    teddies.forEach(teddy => {
+        if ((teddy._id) === id[1]) {
+          let pageOrder = document.getElementById("orderConteneur");
 
     let orderArticle = document.createElement("article");
     orderArticle.setAttribute("class", "order__img");
@@ -41,6 +62,7 @@ function test () {
     let orderDescription = document.createElement("p");
     orderDescription.setAttribute("class", "produit__description");
     orderTexte.appendChild(orderDescription);
+    orderDescription.textContent = teddy.description;
 
     let orderQuantité = document.createElement("div");
     orderQuantité.setAttribute("class", "produit__quantité");
@@ -70,6 +92,51 @@ function test () {
     plus.setAttribute("class", "fas fa-plus");
     divPlus.appendChild(plus);
 
+    let divCouleur = document.createElement("div");
+    divCouleur.setAttribute("class", "produit__couleur");
+    orderAside.appendChild(divCouleur);
+
+    let titreCouleur = document.createElement("label");
+    titreCouleur.setAttribute("for", "ours");
+    divCouleur.appendChild(titreCouleur);
+    titreCouleur.textContent = "Couleurs :";
+
+    let choixCouleur = document.createElement("select");
+    choixCouleur.setAttribute("name", "ours");
+    divCouleur.appendChild(choixCouleur);
+
+    let couleurTitre = document.createElement("option");
+    couleurTitre.setAttribute("value", "choixcouleur");
+    choixCouleur.appendChild(couleurTitre);
+    couleurTitre.textContent = "Choisissez votre couleur :"
+   
+    let couleur1 = document.createElement("option");
+    couleur1.setAttribute("value", "couleur1");
+    choixCouleur.appendChild(couleur1);
+
+    let couleur2 = document.createElement("option");
+    couleur2.setAttribute("value", "couleur2");
+    choixCouleur.appendChild(couleur2);
+
+    let couleur3 = document.createElement("option");
+    couleur3.setAttribute("value", "couleur3");
+    choixCouleur.appendChild(couleur3);
+
+    let divPrix = document.createElement("div");
+    divPrix.setAttribute("class", "produit__prix");
+    orderAside.appendChild(divPrix);
+
+    let prixProduit = document.createElement("p");
+    prixProduit.setAttribute("class", "price");
+    divPrix.appendChild(prixProduit);
+    prixProduit.textContent = "Prix : " + teddy.price / 100 + "€";
+
+    let boutonPanier = document.createElement("button");
+    boutonPanier.setAttribute("class", "bouton__panier");
+    orderAside.appendChild(boutonPanier);
+    boutonPanier.textContent = "Ajouter au panier";
+
+        }
+    })
+
 }
-
-

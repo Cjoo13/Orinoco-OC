@@ -14,10 +14,13 @@ function callApi () {
         }
     }
 
+
     request.open("GET", url);
     request.send();
     });
-    
+        
+        
+
 }
 
 async function listeAllTeddies() {
@@ -50,7 +53,7 @@ async function listeAllTeddies() {
         let produitPrix = document.createElement("p");
         produitPrix.setAttribute("class", "selection__prix");
         produitTexte.appendChild(produitPrix);
-        produitPrix.textContent = teddy.price;
+        produitPrix.textContent = teddy.price / 100 + " €";
 
         let produitAfficher = document.createElement("div");
         produitAfficher.setAttribute("class", "selection__afficher");
@@ -59,11 +62,12 @@ async function listeAllTeddies() {
         let produitDetails = document.createElement("p");
         produitDetails.setAttribute("class", "selection__details");
         produitAfficher.appendChild(produitDetails);
-        produitDetails.textContent = "Plus de détails";
+        
 
         let produitLink = document.createElement("a");
-        produitLink.setAttribute("href","" );
+        produitLink.setAttribute("href","order.html?id" + teddy._id);
         produitDetails.appendChild(produitLink);
+        produitLink.textContent = "Plus de détails";
         
     })
 }
