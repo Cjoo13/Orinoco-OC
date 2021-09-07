@@ -5,12 +5,11 @@ let allTeddies
 function callApi () {
     fetch(url).then((response) => 
         response.json().then((data) => {
-            console.log(data)
+           console.log(data);
         })
 
     )}
     
-
 async function listeAllTeddies() {
     const teddies = await allTeddies;
     teddies.forEach(teddy => {
