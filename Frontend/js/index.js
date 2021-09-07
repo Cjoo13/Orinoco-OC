@@ -3,24 +3,16 @@ import {url} from '../js/main.js';
 
 let allTeddies
 function callApi () {
-    allTeddies = new Promise((resolve) => {
-        let request = new XMLHttpRequest()
-    request.onload = function () {
-        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            resolve(JSON.parse(this.responseText))
-        } else {
-            reject = console.log('erreur lors du chargement de la page')
-            return
-        }
-    }
+    fetch(url)
+        .then((response) => reponse.json())
+        .then( listeAllProduct => {
+            for (let product of listeAllProduct) {
+                let teddy = new Teddy(product)
+                display(teddy);
 
-
-    request.open("GET", url);
-    request.send();
-    });
+            }
         
-        
-
+        })
 }
 
 async function listeAllTeddies() {
