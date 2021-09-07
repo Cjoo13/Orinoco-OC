@@ -3,17 +3,13 @@ import {url} from '../js/main.js';
 
 let allTeddies
 function callApi () {
-    fetch(url)
-        .then((response) => reponse.json())
-        .then( listeAllProduct => {
-            for (let product of listeAllProduct) {
-                let teddy = new Teddy(product)
-                display(teddy);
-
-            }
-        
+    fetch(url).then((response) => 
+        response.json().then((data) => {
+            console.log(data)
         })
-}
+
+    )}
+    
 
 async function listeAllTeddies() {
     const teddies = await allTeddies;
