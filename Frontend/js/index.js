@@ -1,5 +1,5 @@
 export {callApi, listeAllTeddies};
-import {url} from '../js/main.js';
+import {url, teddy} from '../js/main.js';
 
 let allTeddies
 function callApi () {
