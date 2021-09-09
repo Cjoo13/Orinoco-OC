@@ -1,5 +1,5 @@
 export {callApi};
-import {url, teddy} from '../js/main.js';
+import {url} from '../js/main.js';
 
 function callApi () {
     fetch(url)
