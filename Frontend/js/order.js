@@ -1,7 +1,17 @@
 import {url} from '../js/main.js';
-export {orderTeddy, recallApi, orderTeddi};
+export {callOneTeddy};
 
-let selectTeddy
+let params = new URL(document.location).searchParams;
+let id = params.get("id");
+
+function callOneTeddy() {
+    fetch(`http://localhost:3000/api/teddies/${id}`)
+    .then(function (response) {
+        return response.json();
+      })
+
+}
+/*let selectTeddy
 function recallApi() {
     selectTeddy = new Promise((resolve) => {
         let request = new XMLHttpRequest()
@@ -139,4 +149,4 @@ async function orderTeddi () {
         }
     })
 
-}
+}*/
