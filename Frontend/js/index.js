@@ -3,11 +3,9 @@ import {url} from '../js/main.js';
 
 function callApi () {
     fetch(url)
-        .then(function (response) {
-            return response.json();
-        })
+        .then(response => response.json()) 
 
-        .then(function (allTeddies) {
+        .then(allTeddies => {
             const teddies = allTeddies;
             for (let teddy in teddies) {
                 let listeOurs = document.getElementById("selection");
@@ -52,8 +50,8 @@ function callApi () {
                 produitLink.setAttribute("href",`order.html?id=${allTeddies[teddy]._id}`);
                 produitDetails.appendChild(produitLink);
                 produitLink.textContent = "Plus de détails";
-                    }
-                })
-        }
+            }
+        })
+}
 
 
