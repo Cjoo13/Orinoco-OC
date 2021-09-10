@@ -1,5 +1,5 @@
 import {url} from '../js/main.js';
-export {callOneTeddy};
+export {callOneTeddy, ajoutPanier};
 
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
@@ -10,7 +10,6 @@ function callOneTeddy() {
 
         .then(getOneTeddy => {
             const oneTeddy = getOneTeddy
-            console.log(oneTeddy);
             let pageOrder = document.getElementById("orderConteneur");
 
             let orderArticle = document.createElement("article");
@@ -47,29 +46,18 @@ function callOneTeddy() {
             orderQuantité.setAttribute("class", "produit__quantité");
             orderAside.appendChild(orderQuantité);
 
-            let orderQuantP = document.createElement("p");
+            let orderQuantP = document.createElement("label");
             orderQuantité.appendChild(orderQuantP);
             orderQuantP.textContent = "Quantité :";
 
-            let divPlusOuMoins = document.createElement("div");
-            divPlusOuMoins.setAttribute("class", "produit__posneg");
-            orderQuantité.appendChild(divPlusOuMoins);
+            let produitQuantité = document.createElement("div");
+            produitQuantité.setAttribute("class", "produit__decompte");
+            orderQuantité.appendChild(produitQuantité);
 
-            let divMoins = document.createElement("div");
-            divMoins.setAttribute("class", "moins");
-            divPlusOuMoins.appendChild(divMoins);
-
-            let moins = document.createElement("i");
-            moins.setAttribute("class", "fas fa-minus");
-            divMoins.appendChild(moins);
-
-            let divPlus = document.createElement("div");
-            divPlus.setAttribute("class", "plus");
-            divPlusOuMoins.appendChild(divPlus);
-
-            let plus = document.createElement("i");
-            plus.setAttribute("class", "fas fa-plus");
-            divPlus.appendChild(plus);
+            let teddyQuantité = document.createElement("input");
+            teddyQuantité.setAttribute("id", "teddyNum");
+            teddyQuantité.setAttribute("value", 1);
+            produitQuantité.appendChild(teddyQuantité);
 
             let divCouleur = document.createElement("div");
             divCouleur.setAttribute("class", "produit__couleur");
@@ -81,25 +69,15 @@ function callOneTeddy() {
             titreCouleur.textContent = "Couleurs :";
 
             let choixCouleur = document.createElement("select");
+            choixCouleur.setAttribute("id", "ours_quanti");
             choixCouleur.setAttribute("name", "ours");
             divCouleur.appendChild(choixCouleur);
-
-            let couleurTitre = document.createElement("option");
-            couleurTitre.setAttribute("value", "choixcouleur");
-            choixCouleur.appendChild(couleurTitre);
-            couleurTitre.textContent = "Choisissez votre couleur :"
-
-            let couleur1 = document.createElement("option");
-            couleur1.setAttribute("value", "couleur1");
-            choixCouleur.appendChild(couleur1);
-
-            let couleur2 = document.createElement("option");
-            couleur2.setAttribute("value", "couleur2");
-            choixCouleur.appendChild(couleur2);
-
-            let couleur3 = document.createElement("option");
-            couleur3.setAttribute("value", "couleur3");
-            choixCouleur.appendChild(couleur3);
+            for (let i = 0; i < oneTeddy.colors.length; i++) {
+                let couleurTitre = document.createElement("option");
+                couleurTitre.setAttribute("value", "choixcouleur");
+                choixCouleur.appendChild(couleurTitre);
+                couleurTitre.textContent = oneTeddy.colors[i];
+            }
 
             let divPrix = document.createElement("div");
             divPrix.setAttribute("class", "produit__prix");
@@ -108,13 +86,25 @@ function callOneTeddy() {
             let prixProduit = document.createElement("p");
             prixProduit.setAttribute("class", "price");
             divPrix.appendChild(prixProduit);
-            prixProduit.textContent = "Prix : " + oneTeddy.price / 100 + "€";
+            prixProduit.textContent = "Prix unitaire : " + oneTeddy.price / 100 + "€";
 
             let boutonPanier = document.createElement("button");
             boutonPanier.setAttribute("class", "bouton__panier");
+            boutonPanier.setAttribute("type", "submit");
             orderAside.appendChild(boutonPanier);
             boutonPanier.textContent = "Ajouter au panier";
 
         })
 
 }
+function ajoutPanier() {
+    boutonPanier.addEventListener("click", () => {
+        let teddyAdded = {
+            name: orderTitle.innerHTML,
+            quantity: parseFloat(teddyQuantité.value),
+            price: parseFloat(prixProduit.value),
+            _id: id,
+        };
+    })
+}
+

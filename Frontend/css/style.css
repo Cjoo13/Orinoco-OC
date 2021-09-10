@@ -361,26 +361,11 @@ main {
   display: flex;
 }
 
-.produit__posneg {
-  margin-left: 20px;
+.produit__decompte {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 70px;
-}
-
-.produit__posneg i {
-  cursor: pointer;
-}
-
-.produit__posneg .fa-plus {
-  padding-left: 10px;
+  margin-left: 8px;
 }
 
 .produit__couleur {
@@ -395,8 +380,13 @@ main {
   width: 30px;
 }
 
+select {
+  margin-left: 5px;
+}
+
 .bouton__panier {
-  margin-top: 50px;
+  margin-top: 40px;
+  margin-bottom: 10px;
   background: -webkit-gradient(linear, left top, right bottom, from(#E58A0B), to(#8F5BFE));
   background: linear-gradient(to bottom right, #E58A0B, #8F5BFE);
   border-radius: 50px;

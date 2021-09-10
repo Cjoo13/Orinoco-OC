@@ -1,5 +1,5 @@
 import {callApi} from '../js/index.js';
-import {callOneTeddy} from '../js/order.js';
+import {callOneTeddy, ajoutPanier} from '../js/order.js';
 import {panierTeddy} from '../js/checkout.js';
 import {confirmationAchatTeddy} from '../js/confirmation.js';
 
@@ -19,6 +19,7 @@ export class teddy {
 callApi();
 
 callOneTeddy();
+ajoutPanier();
 
 
 panierTeddy();

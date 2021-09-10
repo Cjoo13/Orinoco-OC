@@ -241,22 +241,15 @@ main {
         padding-top: 50px;
         display: flex;
     }
-    &__posneg {
-        margin-left: 20px;
+
+    &__decompte {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 70px;
-        i {
-            cursor: pointer;
-        }
-        .fa-plus {
-            padding-left: 10px;
-        }
+        margin-left: 8px;
     }
     &__couleur {
         padding-top: 20px;
     }
+    
     &__prix {
         margin-top: 40px;
     }
@@ -264,9 +257,13 @@ main {
         width: 30px;
     }
 }
+select {
+    margin-left: 5px;
+}
 
 .bouton__panier {
-    margin-top: 50px;
+    margin-top: 40px;
+    margin-bottom: 10px;
     background: $button-color;
     border-radius: 50px;
     height: 50px;
