@@ -97,14 +97,28 @@ function callOneTeddy() {
         })
 
 }
+
 function ajoutPanier() {
-    boutonPanier.addEventListener("click", () => {
-        let teddyAdded = {
-            name: orderTitle.innerHTML,
-            quantity: parseFloat(teddyQuantité.value),
-            price: parseFloat(prixProduit.value),
+
+    let clickBtnPanier = document.querySelector(".bouton__panier");
+    
+    clickBtnPanier.addEventListener("click", () => {
+        let teddySelec = {
+            name: document.querySelector(".produit__title").innerHTML,
+            quantity: parseFloat(document.querySelector("#teddyNum").value),
+            price: parseFloat(document.querySelector(".price").value),
             _id: id,
         };
+
+        let arrayPanier = [];
+
+        if (localStorage.getItem("teddies") !== null) {
+            arrayPanier = JSON.parse(localStorage.getItem("teddies"));
+        }
+
+        arrayPanier.push(teddySelec);
+        localStorage.setItem("teddies", JSON.stringify(arrayPanier));
+
+        
     })
 }
-
