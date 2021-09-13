@@ -1,12 +1,23 @@
+// Import et exports 
+
 import {url} from '../js/main.js';
 export {callOneTeddy, ajoutPanier};
+
+// Récupération de l'id de l'article concerné
 
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
 
+// Récupération de l'article dans l'API
+
 function callOneTeddy() {
+
+// L'article est défini grâce à l'id spécifié
+
     fetch(`http://localhost:3000/api/teddies/${id}`)
         .then(response => response.json())
+
+// Répartition des données de l'article dans le DOM        
 
         .then(getOneTeddy => {
             const oneTeddy = getOneTeddy
@@ -69,7 +80,7 @@ function callOneTeddy() {
             titreCouleur.textContent = "Couleurs :";
 
             let choixCouleur = document.createElement("select");
-            choixCouleur.setAttribute("id", "ours_quanti");
+            choixCouleur.setAttribute("id", "#idQuanti");
             choixCouleur.setAttribute("name", "ours");
             divCouleur.appendChild(choixCouleur);
             for (let i = 0; i < oneTeddy.colors.length; i++) {
@@ -98,27 +109,38 @@ function callOneTeddy() {
 
 }
 
+// Création de l'action d'ajout au panier
+
 function ajoutPanier() {
 
     let clickBtnPanier = document.querySelector(".bouton__panier");
     
     clickBtnPanier.addEventListener("click", () => {
+
+// Création de l'article ajouté au panier
+
         let teddySelec = {
             name: document.querySelector(".produit__title").innerHTML,
-            quantity: parseFloat(document.querySelector("#teddyNum").value),
-            price: parseFloat(document.querySelector(".price").value),
+            quantity: teddyNum.value,
+            price: document.querySelector(".price").value,
             _id: id,
         };
 
+// Gestion du localStorrage        
+
         let arrayPanier = [];
+
+// Si la key "teddies" existe déjà et que le localStorrage n'est pas vide, on envoie son contenu dans arrayPanier       
 
         if (localStorage.getItem("teddies") !== null) {
             arrayPanier = JSON.parse(localStorage.getItem("teddies"));
         }
 
+// Sinon on remplit le localStorrage avec l'article ajouté au panier      
+
         arrayPanier.push(teddySelec);
         localStorage.setItem("teddies", JSON.stringify(arrayPanier));
 
-        
+        console.log(teddySelec);        
     })
 }

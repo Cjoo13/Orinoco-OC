@@ -1,5 +1,5 @@
 import {url} from '../js/main.js';
-export {panierTeddy};
+export {panierTeddy, envoiForm};
 
 function panierTeddy () {
 
@@ -25,26 +25,6 @@ function panierTeddy () {
     produitQuantité.setAttribute("class", "resume__quantxt");
     produitDivQuantité.appendChild(produitQuantité);
 
-    let divPlusOuMoins = document.createElement("div");
-    divPlusOuMoins.setAttribute("class", "produit__posneg");
-    produitDivQuantité.appendChild(divPlusOuMoins);
-
-    let divMoins = document.createElement("div");
-    divMoins.setAttribute("class", "moins");
-    divPlusOuMoins.appendChild(divMoins);
-
-    let moins = document.createElement("i");
-    moins.setAttribute("class", "fas fa-minus");
-    divMoins.appendChild(moins);
-
-    let divPlus = document.createElement("div");
-    divPlus.setAttribute("class", "plus");
-    divPlusOuMoins.appendChild(divPlus);
-
-    let plus = document.createElement("i");
-    plus.setAttribute("class", "fas fa-plus");
-    divPlus.appendChild(plus);
-
     let produitCouleur = document.createElement("p");
     produitCouleur.setAttribute("class", "resume__couleur");
     produitResume.appendChild(produitCouleur);
@@ -57,6 +37,10 @@ function panierTeddy () {
     resumePrix.setAttribute("class", "resume__prix-p");
     divResumePrix.appendChild(resumePrix);
 
+}
+
+function envoiForm() {
+
     let checkoutFormulaire = document.getElementById("formulaire");
 
     let form = document.createElement("form");
@@ -68,12 +52,40 @@ function panierTeddy () {
     formCartouche.setAttribute("class", "formulaire__cartouche");
     form.appendChild(formCartouche);
 
-    let formLabel = document.createElement("label");
-    formLabel.setAttribute("for", "name");
+    let formNom = document.createElement("label");
+    formNom.setAttribute("for", "name");
     formCartouche.appendChild(formLabel);
-    formLabel.textContent = "Nom :";
+    formNom.textContent = "Nom :";
 
+    let formPrénom = document.createElement("label");
+    formPrénom.setAttribute("for", "surname");
+    formCartouche.appendChild(formPrénom);
+    formPrénom.textContent = "Prénom :";
+
+    let formAdresse = document.createElement("label");
+    formAdresse.setAttribute("for", "adress");
+    formCartouche.appendChild(formAdresse);
+    formAdresse.textContent = "Adresse :";
+
+    let formVille = document.createElement("label");
+    formVille.setAttribute("for", "city");
+    formCartouche.appendChild(formVille);
+    formVille.textContent = "Ville :";
+
+    let formMail = document.createElement("label");
+    formMail.setAttribute("for", "mail");
+    formCartouche.appendChild(formMail);
+    formMail.textContent ="Mail :";
+
+    let btnEnvoi = document.createElement("button");
+    btnEnvoi.setAttribute("class", "commander");
+    checkoutFormulaire.appendChild(btnEnvoi);
+    btnEnvoi.textContent = "Valider ma commande";
 }
+
+    
+
+
 
 
 

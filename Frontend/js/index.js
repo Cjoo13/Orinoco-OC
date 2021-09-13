@@ -1,13 +1,22 @@
+// Export de la fonction callApi
+
 export {callApi};
+
+// Import de l'url
+
 import {url} from '../js/main.js';
+
+// Récupération des articles dans l'API
 
 function callApi () {
     fetch(url)
-        .then(response => response.json()) 
+        .then(response => response.json())
+
+// Répartition des données de chaque articles dans le DOM
 
         .then(allTeddies => {
             const teddies = allTeddies;
-            for (let teddy in teddies) {
+            for (let teddy in teddies) {                
                 let listeOurs = document.getElementById("selection");
 
                 let produitFigure = document.createElement("figure");
