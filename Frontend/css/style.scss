@@ -307,17 +307,17 @@ select {
     &__couleur {
         margin-bottom: 10px;
     }
-    &__sup-button {
+    &__total {
+        display: flex;
+        justify-content: center;
+        font-size: 25px;
+    }
+    .supprimer__panier {
         background: #BE7579;
         color: #FFFF;
         height: 50px;
         width: 150px;
         cursor: pointer;
-    }
-    &__total {
-        display: flex;
-        justify-content: center;
-        font-size: 25px;
     }
 }
 
@@ -326,6 +326,9 @@ select {
     flex-direction: column;
     align-items: center;
     padding-bottom: 30px;
+    &__title {
+        margin-bottom: 30px;
+    }
     &__cartouche {
         margin-bottom: 15px;
         font-size: 20px;
@@ -339,9 +342,7 @@ select {
     height: 60px;
     width: 280px;
     cursor: pointer;
-    a {
-        color: white;
-    }
+    color: white;
 }
 
 .conf-main {

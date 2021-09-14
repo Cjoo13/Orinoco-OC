@@ -461,14 +461,6 @@ select {
   margin-bottom: 10px;
 }
 
-.resume__sup-button {
-  background: #BE7579;
-  color: #FFFF;
-  height: 50px;
-  width: 150px;
-  cursor: pointer;
-}
-
 .resume__total {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -477,6 +469,14 @@ select {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 25px;
+}
+
+.resume .supprimer__panier {
+  background: #BE7579;
+  color: #FFFF;
+  height: 50px;
+  width: 150px;
+  cursor: pointer;
 }
 
 .formulaire {
@@ -493,6 +493,10 @@ select {
   padding-bottom: 30px;
 }
 
+.formulaire__title {
+  margin-bottom: 30px;
+}
+
 .formulaire__cartouche {
   margin-bottom: 15px;
   font-size: 20px;
@@ -506,9 +510,6 @@ select {
   height: 60px;
   width: 280px;
   cursor: pointer;
-}
-
-.commander a {
   color: white;
 }
 

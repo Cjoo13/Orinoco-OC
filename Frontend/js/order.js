@@ -119,7 +119,7 @@ let ajoutPanier = async() => {
 
     let clickBtnPanier = document.querySelector(".bouton__panier");
     
-    clickBtnPanier.addEventListener("click", () => {
+     await clickBtnPanier.addEventListener("click", () => {
 
         // Création de l'article ajouté au panier
 
