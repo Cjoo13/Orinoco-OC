@@ -1,7 +1,6 @@
 // Import et exports 
 
 import {url} from '../js/main.js';
-export {callOneTeddy, ajoutPanier};
 
 // Récupération de l'id de l'article concerné
 
@@ -10,14 +9,14 @@ let id = params.get("id");
 
 // Récupération de l'article dans l'API
 
-function callOneTeddy() {
+let callOneTeddy = async() => {
 
-// L'article est défini grâce à l'id spécifié
+    // L'article est défini grâce à l'id spécifié
 
-    fetch(`http://localhost:3000/api/teddies/${id}`)
+    await fetch(`http://localhost:3000/api/teddies/${id}`)
         .then(response => response.json())
 
-// Répartition des données de l'article dans le DOM        
+        // Répartition des données de l'article dans le DOM        
 
         .then(getOneTeddy => {
             const oneTeddy = getOneTeddy
@@ -97,7 +96,12 @@ function callOneTeddy() {
             let prixProduit = document.createElement("p");
             prixProduit.setAttribute("class", "price");
             divPrix.appendChild(prixProduit);
-            prixProduit.textContent = "Prix unitaire : " + oneTeddy.price / 100 + "€";
+            oneTeddy.price = oneTeddy.price / 100;
+            prixProduit.innerText = new Intl.NumberFormat("fr-FR", {
+                style: "currency",
+                currency: "EUR",
+              })
+            .format(oneTeddy.price);
 
             let boutonPanier = document.createElement("button");
             boutonPanier.setAttribute("class", "bouton__panier");
@@ -111,32 +115,32 @@ function callOneTeddy() {
 
 // Création de l'action d'ajout au panier
 
-function ajoutPanier() {
+let ajoutPanier = async() => {
 
     let clickBtnPanier = document.querySelector(".bouton__panier");
     
     clickBtnPanier.addEventListener("click", () => {
 
-// Création de l'article ajouté au panier
+        // Création de l'article ajouté au panier
 
         let teddySelec = {
             name: document.querySelector(".produit__title").innerHTML,
             quantity: teddyNum.value,
-            price: document.querySelector(".price").value,
+            price: parseFloat (document.querySelector(".price").innerHTML),
             _id: id,
         };
 
-// Gestion du localStorrage        
+        // Gestion du localStorrage        
 
         let arrayPanier = [];
 
-// Si la key "teddies" existe déjà et que le localStorrage n'est pas vide, on envoie son contenu dans arrayPanier       
+        // Si la key "teddies" existe déjà et que le localStorrage n'est pas vide, on envoie son contenu dans arrayPanier       
 
         if (localStorage.getItem("teddies") !== null) {
             arrayPanier = JSON.parse(localStorage.getItem("teddies"));
         }
 
-// Sinon on remplit le localStorrage avec l'article ajouté au panier      
+        // Sinon on remplit le localStorrage avec l'article ajouté au panier      
 
         arrayPanier.push(teddySelec);
         localStorage.setItem("teddies", JSON.stringify(arrayPanier));
@@ -144,3 +148,8 @@ function ajoutPanier() {
         console.log(teddySelec);        
     })
 }
+
+// Appel des fonctions de la page
+
+callOneTeddy().then(data => ajoutPanier());
+

@@ -1,7 +1,6 @@
 import {url} from '../js/main.js';
-export {panierTeddy, envoiForm};
 
-function panierTeddy () {
+let panierTeddy = async() => {
 
     let checkoutResume = document.getElementById("resumeCartouche");
 
@@ -39,7 +38,7 @@ function panierTeddy () {
 
 }
 
-function envoiForm() {
+let envoiForm = async() => {
 
     let checkoutFormulaire = document.getElementById("formulaire");
 
@@ -54,7 +53,7 @@ function envoiForm() {
 
     let formNom = document.createElement("label");
     formNom.setAttribute("for", "name");
-    formCartouche.appendChild(formLabel);
+    formCartouche.appendChild(formNom);
     formNom.textContent = "Nom :";
 
     let formPrénom = document.createElement("label");
@@ -83,6 +82,8 @@ function envoiForm() {
     btnEnvoi.textContent = "Valider ma commande";
 }
 
+panierTeddy();
+envoiForm();
     
 
 

@@ -1,18 +1,14 @@
-// Export de la fonction callApi
-
-export {callApi};
-
 // Import de l'url
 
 import {url} from '../js/main.js';
 
 // Récupération des articles dans l'API
 
-function callApi () {
-    fetch(url)
+let callApi = async() => {
+    await fetch(url)
         .then(response => response.json())
 
-// Répartition des données de chaque articles dans le DOM
+        // Répartition des données de chaque articles dans le DOM
 
         .then(allTeddies => {
             const teddies = allTeddies;
@@ -63,4 +59,7 @@ function callApi () {
         })
 }
 
+// Appel de la fonction de la page
+
+callApi();
 
