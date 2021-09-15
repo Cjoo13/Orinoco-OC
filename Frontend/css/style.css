@@ -320,7 +320,7 @@ main {
 @media (min-width: 320px) and (max-width: 800px) {
   .order__img img {
     width: 300px;
-    height: 232px;
+    height: 179px;
     border-bottom: 1px solid;
   }
 }
@@ -422,13 +422,13 @@ select {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   border: 1px solid;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   border-radius: 50px;
-  height: 150px;
+  height: 100px;
   width: 800px;
   -webkit-box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.5);
           box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.5);
@@ -437,7 +437,7 @@ select {
 @media (min-width: 320px) and (max-width: 800px) {
   .resume__achat {
     width: 300px;
-    height: 230px;
+    height: 140px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -446,7 +446,7 @@ select {
 }
 
 .resume__titre {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-top: 10px;
 }
 
@@ -469,6 +469,39 @@ select {
       -ms-flex-pack: center;
           justify-content: center;
   font-size: 25px;
+}
+
+.resume__cartouche {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 700px;
+  margin-bottom: 30px;
+}
+
+.resume__cartouche p {
+  font-size: 20px;
+}
+
+@media (min-width: 320px) and (max-width: 800px) {
+  .resume__cartouche p {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 800px) {
+  .resume__cartouche {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .resume .supprimer__panier {
@@ -497,9 +530,31 @@ select {
   margin-bottom: 30px;
 }
 
+.formulaire__complet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
 .formulaire__cartouche {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin-bottom: 15px;
-  font-size: 20px;
+  font-size: 15px;
+}
+
+.formulaire input {
+  margin-left: 10px;
 }
 
 .commander {

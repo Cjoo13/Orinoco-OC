@@ -41,7 +41,7 @@ let panierTeddy = async () => {
         let resumePrix = document.createElement("p");
         resumePrix.setAttribute("class", "resume__prix-p");
         resumeDivPrix.appendChild(resumePrix);
-        resumePrix.innerHTML = new Intl.NumberFormat("fr-FR", {
+        resumePrix.innerHTML = "Prix : " + new Intl.NumberFormat("fr-FR", {
             style: "currency",
             currency: "EUR",
           }).format(localS[teddy].price * localS[teddy].quantity);
@@ -50,9 +50,13 @@ let panierTeddy = async () => {
 
         let checkoutResume = document.getElementById("resumePanier");
 
+        let resumeTotalCartouche = document.createElement("div");
+        resumeTotalCartouche.setAttribute("class", "resume__cartouche");
+        checkoutResume.appendChild(resumeTotalCartouche);
+
         let resumeDivTotal = document.createElement("div");
         resumeDivTotal.setAttribute("class", "resume__total");
-        checkoutResume.appendChild(resumeDivTotal);
+        resumeTotalCartouche.appendChild(resumeDivTotal);
 
         let resumeTotal = document.createElement("p");
         resumeTotal.setAttribute("class", "resume__total-p");
@@ -60,7 +64,7 @@ let panierTeddy = async () => {
 
         let btnViderPanier = document.createElement("button");
         btnViderPanier.setAttribute("class", "supprimer__panier");
-        checkoutResume.appendChild(btnViderPanier);
+        resumeTotalCartouche.appendChild(btnViderPanier);
         btnViderPanier.textContent = "Vider le panier";
 
 }
@@ -72,6 +76,29 @@ let viderPanier = async() => {
         localStorage.clear();
         location.reload();
     });
+}
+
+let calculTotal = async () => {
+
+    let tableauCalcul = [];
+    let resumeTotal = document.querySelector(".resume__total-p");
+
+    for (let p = 0; p < localS.length; p++) {
+        let prixProduitPanier = localS[p].price * localS[p].quantity;
+
+        tableauCalcul.push(prixProduitPanier);
+        
+
+        console.log(tableauCalcul);
+    }
+
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    const prixTotal = tableauCalcul.reduce(reducer,0);
+
+    console.log(prixTotal);
+
+    resumeTotal.innerHTML = "Prix de la commande : " + prixTotal + " €";
+    
 }
 
 let envoiForm = async() => {
@@ -86,6 +113,7 @@ let envoiForm = async() => {
     let form = document.createElement("form");
     form.setAttribute("action", "hub");
     form.setAttribute("method", "POST");
+    form.setAttribute("class", "formulaire__complet");
     checkoutFormulaire.appendChild(form);
 
     let formCartouche = document.createElement("div");
@@ -97,6 +125,10 @@ let envoiForm = async() => {
     formCartouche.appendChild(formNom);
     formNom.textContent = "Nom :";
 
+    let formNomInput = document.createElement("input");
+    formNomInput.setAttribute("id", "name");
+    formCartouche.appendChild(formNomInput);
+
     let formCartouche2 = document.createElement("div");
     formCartouche2.setAttribute("class", "formulaire__cartouche");
     form.appendChild(formCartouche2);
@@ -105,6 +137,10 @@ let envoiForm = async() => {
     formPrénom.setAttribute("for", "surname");
     formCartouche2.appendChild(formPrénom);
     formPrénom.textContent = "Prénom :";
+
+    let formPrénomInput = document.createElement("input");
+    formPrénomInput.setAttribute("id", "suname");
+    formCartouche2.appendChild(formPrénomInput);
 
     let formCartouche3 = document.createElement("div");
     formCartouche3.setAttribute("class", "formulaire__cartouche");
@@ -115,6 +151,10 @@ let envoiForm = async() => {
     formCartouche3.appendChild(formAdresse);
     formAdresse.textContent = "Adresse :";
 
+    let formAdresseInput = document.createElement("input");
+    formAdresseInput.setAttribute("id", "adress");
+    formCartouche3.appendChild(formAdresseInput);
+
     let formCartouche4 = document.createElement("div");
     formCartouche4.setAttribute("class", "formulaire__cartouche");
     form.appendChild(formCartouche4);
@@ -123,6 +163,10 @@ let envoiForm = async() => {
     formVille.setAttribute("for", "city");
     formCartouche4.appendChild(formVille);
     formVille.textContent = "Ville :";
+
+    let formVilleInput = document.createElement("input");
+    formVilleInput.setAttribute("id", "city");
+    formCartouche4.appendChild(formVilleInput);
 
     let formCartouche5 = document.createElement("div");
     formCartouche5.setAttribute("class", "formulaire__cartouche");
@@ -133,13 +177,20 @@ let envoiForm = async() => {
     formCartouche5.appendChild(formMail);
     formMail.textContent ="Mail :";
 
+    let formMailInput = document.createElement("input");
+    formMailInput.setAttribute("id", "mail");
+    formCartouche5.appendChild(formMailInput);
+
     let btnEnvoi = document.createElement("button");
     btnEnvoi.setAttribute("class", "commander");
     checkoutFormulaire.appendChild(btnEnvoi);
     btnEnvoi.textContent = "Valider ma commande";
 }
 
-panierTeddy().then(data => viderPanier());
+
+
+panierTeddy().then(data => viderPanier()).then(data => calculTotal());
+
 envoiForm();
     
 
