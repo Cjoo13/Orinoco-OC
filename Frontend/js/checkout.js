@@ -41,10 +41,7 @@ let panierTeddy = async () => {
         let resumePrix = document.createElement("p");
         resumePrix.setAttribute("class", "resume__prix-p");
         resumeDivPrix.appendChild(resumePrix);
-        resumePrix.innerHTML = "Prix : " + new Intl.NumberFormat("fr-FR", {
-            style: "currency",
-            currency: "EUR",
-          }).format(localS[teddy].price * localS[teddy].quantity);
+        resumePrix.innerHTML = "Prix : " + localS[teddy].price * localS[teddy].quantity + " €";
 
         }
 
@@ -185,13 +182,45 @@ let envoiForm = async() => {
     btnEnvoi.setAttribute("class", "commander");
     checkoutFormulaire.appendChild(btnEnvoi);
     btnEnvoi.textContent = "Valider ma commande";
+
+    await btnEnvoi.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        let produitsAjoutés = [];
+        produitsAjoutés.push(localS);
+
+        console.log(produitsAjoutés);
+
+        const formValues = {
+            contact: {
+                firstName: formNomInput.value,
+                lastName: formPrénomInput.value,
+                adress:  formAdresseInput.value,
+                city: formVilleInput.value,
+                email: formMailInput.value
+            },
+
+            products: produitsAjoutés,
+            
+        };
+
+        console.log(formValues);
+
+        localStorage.setItem("formValues", JSON.stringify(formValues));
+
+        const dataEnvoyées = {
+            formValues
+        }
+
+        console.log(dataEnvoyées);
+        
+        
+    })
 }
 
 
 
-panierTeddy().then(data => viderPanier()).then(data => calculTotal());
-
-envoiForm();
+panierTeddy().then(data => viderPanier()).then(data => calculTotal()).then(data => envoiForm());
     
 
 

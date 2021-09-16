@@ -145,6 +145,16 @@ let ajoutPanier = async() => {
         arrayPanier.push(teddySelec);
         localStorage.setItem("teddies", JSON.stringify(arrayPanier));
 
+        // Validation visuelle de l'action d'ajout au panier
+
+        let mainConteneur = document.querySelector("#mainOrder");
+
+        let validationPanier = document.createElement("p");
+        validationPanier.setAttribute("class", "panier__validé");
+        mainConteneur.appendChild(validationPanier);
+        validationPanier.textContent = "L'article a été ajouté au panier";
+        setTimeout("location.reload(true);", 1000);
+
         console.log(teddySelec);        
     })
 }
