@@ -214,22 +214,14 @@ let envoiForm = async() => {
             };
 
             console.log(formEtPanier);
-
-            localStorage.setItem("formEtPanier", JSON.stringify(formEtPanier));
-
-            const dataEnvoyées = {
-                formEtPanier
-            }
-
-            console.log(dataEnvoyées);
             
             fetch("http://localhost:3000/api/teddies/order", {
                 method: "POST",
                 body: JSON.stringify(formEtPanier),
                 headers: { "Content-Type": "application/json" },
             })
-                .then((response) => response.json())
-                .then((data) => {
+                .then(response => response.json())
+                .then(data => {
                     console.log(data)
                     localStorage.setItem("orderId", data.orderId);
                     //window.location = "confirmation.html";
