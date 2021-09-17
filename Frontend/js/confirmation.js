@@ -1,4 +1,4 @@
-let confirmationAchatTeddy= async () => {
+let confirmationAchatTeddy = async () => {
     
     let confirmationMain = document.getElementById("confMain");
 

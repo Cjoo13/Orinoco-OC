@@ -214,6 +214,8 @@ let envoiForm = async() => {
             };
 
             console.log(formEtPanier);
+
+            let prixConfirmation = document.querySelector(".resume__total-p").innerText;
             
             fetch("http://localhost:3000/api/teddies/order", {
                 method: "POST",
@@ -224,7 +226,8 @@ let envoiForm = async() => {
                 .then(data => {
                     console.log(data)
                     localStorage.setItem("orderId", data.orderId);
-                    //window.location = "confirmation.html";
+                    localStorage.setItem("totalCommande", prixConfirmation);
+                    window.location = "confirmation.html";
                 })
                     
                 
