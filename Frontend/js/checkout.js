@@ -224,6 +224,7 @@ let envoiForm = async() => {
             })
                 .then(response => response.json())
                 .then(data => {
+                    localStorage.clear();
                     console.log(data)
                     localStorage.setItem("orderId", data.orderId);
                     localStorage.setItem("totalCommande", prixConfirmation);
