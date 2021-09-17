@@ -19,7 +19,7 @@ let confirmationAchatTeddy = async () => {
     let numeroCommande = document.createElement("p");
     numeroCommande.setAttribute("class", "confirmation__num");
     confirmationDiv.appendChild(numeroCommande);
-    numeroCommande.textContent = "Numéro de commande : ";
+    numeroCommande.textContent = "Numéro de commande : " + localStorage.getItem("orderId");
     
     let prixCommande = document.createElement("p");
     prixCommande.setAttribute("class", "confirmation__total");
