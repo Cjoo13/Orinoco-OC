@@ -24,7 +24,7 @@ let confirmationAchatTeddy = async () => {
     let prixCommande = document.createElement("p");
     prixCommande.setAttribute("class", "confirmation__total");
     confirmationDiv.appendChild(prixCommande);
-    prixCommande.textContent = "Prix total de la commande : ";
+    prixCommande.textContent = localStorage.getItem("totalCommande");
 
 
 }
