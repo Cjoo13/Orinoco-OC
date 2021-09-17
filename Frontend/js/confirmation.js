@@ -1,7 +1,4 @@
-import {url} from '../js/main.js';
-export {confirmationAchatTeddy};
-
-async function confirmationAchatTeddy () {
+let confirmationAchatTeddy= async () => {
     
     let confirmationMain = document.getElementById("confMain");
 
@@ -31,3 +28,5 @@ async function confirmationAchatTeddy () {
 
 
 }
+
+confirmationAchatTeddy();

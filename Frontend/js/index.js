@@ -1,11 +1,7 @@
-// Import de l'url
-
-import {url} from '../js/main.js';
-
 // Récupération des articles dans l'API
 
 let callApi = async() => {
-    await fetch(url)
+    await fetch("http://localhost:3000/api/teddies")
         .then(response => response.json())
 
         // Répartition des données de chaque articles dans le DOM

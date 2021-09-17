@@ -1,5 +1,3 @@
-import {url} from '../js/main.js';
-
 let localS = JSON.parse(localStorage.getItem("teddies"));
 let checkoutTitle = document.querySelector(".resume__title");
 
@@ -43,26 +41,26 @@ let panierTeddy = async () => {
         resumeDivPrix.appendChild(resumePrix);
         resumePrix.innerHTML = "Prix : " + localS[teddy].price * localS[teddy].quantity + " €";
 
-        }
+    }
 
-        let checkoutResume = document.getElementById("resumePanier");
+    let checkoutResume = document.getElementById("resumePanier");
 
-        let resumeTotalCartouche = document.createElement("div");
-        resumeTotalCartouche.setAttribute("class", "resume__cartouche");
-        checkoutResume.appendChild(resumeTotalCartouche);
+    let resumeTotalCartouche = document.createElement("div");
+    resumeTotalCartouche.setAttribute("class", "resume__cartouche");
+    checkoutResume.appendChild(resumeTotalCartouche);
 
-        let resumeDivTotal = document.createElement("div");
-        resumeDivTotal.setAttribute("class", "resume__total");
-        resumeTotalCartouche.appendChild(resumeDivTotal);
+    let resumeDivTotal = document.createElement("div");
+    resumeDivTotal.setAttribute("class", "resume__total");
+    resumeTotalCartouche.appendChild(resumeDivTotal);
 
-        let resumeTotal = document.createElement("p");
-        resumeTotal.setAttribute("class", "resume__total-p");
-        resumeDivTotal.appendChild(resumeTotal);
+    let resumeTotal = document.createElement("p");
+    resumeTotal.setAttribute("class", "resume__total-p");
+    resumeDivTotal.appendChild(resumeTotal);
 
-        let btnViderPanier = document.createElement("button");
-        btnViderPanier.setAttribute("class", "supprimer__panier");
-        resumeTotalCartouche.appendChild(btnViderPanier);
-        btnViderPanier.textContent = "Vider le panier";
+    let btnViderPanier = document.createElement("button");
+    btnViderPanier.setAttribute("class", "supprimer__panier");
+    resumeTotalCartouche.appendChild(btnViderPanier);
+    btnViderPanier.textContent = "Vider le panier";
 
 }
 
@@ -183,38 +181,63 @@ let envoiForm = async() => {
     checkoutFormulaire.appendChild(btnEnvoi);
     btnEnvoi.textContent = "Valider ma commande";
 
-    await btnEnvoi.addEventListener("click", (event) => {
+    btnEnvoi.addEventListener("click", (event) => {
         event.preventDefault();
 
-        let produitsAjoutés = [];
-        produitsAjoutés.push(localS);
+        if (
+            !formNomInput.value ||
+            !formPrénomInput.value ||
+            !formAdresseInput.value ||
+            !formVilleInput.value ||
+            !formMailInput.value
+        ) {
+            alert("Merci de remplir tous les champs");
 
-        console.log(produitsAjoutés);
+        } else {
 
-        const formValues = {
-            contact: {
-                firstName: formNomInput.value,
-                lastName: formPrénomInput.value,
-                adress:  formAdresseInput.value,
-                city: formVilleInput.value,
-                email: formMailInput.value
-            },
+            let produitsAjoutés = [];
+            produitsAjoutés.push(localS);
 
-            products: produitsAjoutés,
+            console.log(produitsAjoutés);
+
+            const formEtPanier = {
+                contact: {
+                    firstName: formNomInput.value,
+                    lastName: formPrénomInput.value,
+                    adress:  formAdresseInput.value,
+                    city: formVilleInput.value,
+                    email: formMailInput.value
+                },
+
+                products: produitsAjoutés,
+                
+            };
+
+            console.log(formEtPanier);
+
+            localStorage.setItem("formEtPanier", JSON.stringify(formEtPanier));
+
+            const dataEnvoyées = {
+                formEtPanier
+            }
+
+            console.log(dataEnvoyées);
             
-        };
+            fetch("http://localhost:3000/api/teddies/order", {
+                method: "POST",
+                body: JSON.stringify(formEtPanier),
+                headers: { "Content-Type": "application/json" },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data)
+                    localStorage.setItem("orderId", data.orderId);
+                    //window.location = "confirmation.html";
+                })
+                    
+                
 
-        console.log(formValues);
-
-        localStorage.setItem("formValues", JSON.stringify(formValues));
-
-        const dataEnvoyées = {
-            formValues
         }
-
-        console.log(dataEnvoyées);
-        
-        
     })
 }
 

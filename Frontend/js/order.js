@@ -1,7 +1,3 @@
-// Import et exports 
-
-import {url} from '../js/main.js';
-
 // Récupération de l'id de l'article concerné
 
 let params = new URL(document.location).searchParams;
