@@ -1,19 +1,15 @@
 // Récupération de l'id de l'article concerné
-
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
 
 // Récupération de l'article dans l'API
-
 let callOneTeddy = async() => {
 
     // L'article est défini grâce à l'id spécifié
-
     await fetch(`http://localhost:3000/api/teddies/${id}`)
         .then(response => response.json())
 
         // Répartition des données de l'article dans le DOM        
-
         .then(getOneTeddy => {
             const oneTeddy = getOneTeddy
             let pageOrder = document.getElementById("orderConteneur");
@@ -110,15 +106,12 @@ let callOneTeddy = async() => {
 }
 
 // Création de l'action d'ajout au panier
-
 let ajoutPanier = async() => {
 
     let clickBtnPanier = document.querySelector(".bouton__panier");
-    
      await clickBtnPanier.addEventListener("click", () => {
 
         // Création de l'article ajouté au panier
-
         let teddySelec = {
             name: document.querySelector(".produit__title").innerHTML,
             quantity: teddyNum.value,
@@ -127,27 +120,22 @@ let ajoutPanier = async() => {
         };
 
         // Gestion du localStorrage        
-
         let arrayPanier = [];
 
         // Si la key "teddies" existe déjà et que le localStorrage n'est pas vide, on envoie son contenu dans arrayPanier       
-
         if (localStorage.getItem("teddies") !== null) {
             arrayPanier = JSON.parse(localStorage.getItem("teddies"));
         }
 
         // Sinon on remplit le localStorrage avec l'article ajouté au panier      
-
         arrayPanier.push(teddySelec);
         localStorage.setItem("teddies", JSON.stringify(arrayPanier));
 
         // Validation visuelle de l'action d'ajout au panier
-
         alert("L'article a été ajouté au panier");        
     })
 }
 
 // Appel des fonctions de la page
-
 callOneTeddy().then(data => ajoutPanier());
 

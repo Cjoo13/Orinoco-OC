@@ -194,9 +194,12 @@ let envoiForm = async() => {
             alert("Merci de remplir tous les champs");
 
         } else {
-
+            console.log(localS)
             let produitsAjoutés = [];
-            produitsAjoutés.push(localS);
+            for(let produit of localS){
+                produitsAjoutés.push(produit._id);
+            }
+            
 
             console.log(produitsAjoutés);
 
@@ -204,7 +207,7 @@ let envoiForm = async() => {
                 contact: {
                     firstName: formNomInput.value,
                     lastName: formPrénomInput.value,
-                    adress:  formAdresseInput.value,
+                    address:  formAdresseInput.value,
                     city: formVilleInput.value,
                     email: formMailInput.value
                 },
@@ -215,9 +218,16 @@ let envoiForm = async() => {
 
             console.log(formEtPanier);
 
+            // Vérification si le champ contient bien une adresse mail
+            let testMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formMailInput.value)
+            if(!testMail){
+                alert('pas mail')
+                return false
+            }
+
             let prixConfirmation = document.querySelector(".resume__total-p").innerText;
             
-            fetch("http://localhost:3000/api/teddies/order", {
+            fetch("http://localhost:3000/api/teddies/order", {            
                 method: "POST",
                 body: JSON.stringify(formEtPanier),
                 headers: { "Content-Type": "application/json" },
