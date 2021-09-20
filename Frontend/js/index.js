@@ -1,11 +1,9 @@
 // Récupération des articles dans l'API
-
 let callApi = async() => {
     await fetch("http://localhost:3000/api/teddies")
         .then(response => response.json())
 
         // Répartition des données de chaque articles dans le DOM
-
         .then(allTeddies => {
             const teddies = allTeddies;
             for (let teddy in teddies) {                
@@ -56,6 +54,5 @@ let callApi = async() => {
 }
 
 // Appel de la fonction de la page
-
 callApi();
 

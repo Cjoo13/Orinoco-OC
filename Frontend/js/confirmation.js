@@ -1,3 +1,4 @@
+// Mise en place du DOM qui va contenir les informations de confirmation de commande
 let confirmationAchatTeddy = async () => {
     
     let confirmationMain = document.getElementById("confMain");
@@ -26,7 +27,11 @@ let confirmationAchatTeddy = async () => {
     confirmationDiv.appendChild(prixCommande);
     prixCommande.textContent = localStorage.getItem("totalCommande");
 
+    // On vide complétement le localStorage car la commande est finie et validée
+    localStorage.clear();
+
 
 }
 
+// Déclaration de la fonction de la page
 confirmationAchatTeddy();

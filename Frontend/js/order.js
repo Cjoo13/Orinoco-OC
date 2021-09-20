@@ -24,6 +24,7 @@ let callOneTeddy = async() => {
 
             let orderImg = document.createElement("img");
             orderImg.setAttribute("src", oneTeddy.imageUrl);
+            orderImg.setAttribute("alt", "Image d'ours en peluche");
             orderFigure.appendChild(orderImg);
 
             let orderAside = document.createElement("aside");
@@ -89,6 +90,8 @@ let callOneTeddy = async() => {
             prixProduit.setAttribute("class", "price");
             divPrix.appendChild(prixProduit);
             oneTeddy.price = oneTeddy.price / 100;
+            
+            //Formatage du prix en euros
             prixProduit.innerText = new Intl.NumberFormat("fr-FR", {
                 style: "currency",
                 currency: "EUR",

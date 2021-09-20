@@ -1,4 +1,6 @@
 @charset "UTF-8";
+/* Variables qui contiennent les couleurs utilisées sur le site */
+/* Règles qui s'utilisent sur les 4 pages */
 body, nav, ul, p, h2, h3, h1, figure {
   margin: 0;
   padding: 0;
@@ -19,37 +21,6 @@ a {
 
 main {
   background-color: #fcfafc;
-}
-
-.plus {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border: 1px solid;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 25px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-right: 7px;
-  height: 20px;
-}
-
-.moins {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border: 1px solid;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 25px;
-  height: 20px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .header {
@@ -135,6 +106,35 @@ main {
   margin-right: 5px;
 }
 
+.footer {
+  padding-bottom: 30px;
+  background-color: #F3E9F1;
+  padding-top: 30px;
+}
+
+.footer__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .footer__list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.footer__list li {
+  margin-left: 100px;
+}
+
+/* Règles qui s'appliquent à la page index.html */
 .conteneur {
   padding-top: 50px;
 }
@@ -245,34 +245,7 @@ main {
   }
 }
 
-.footer {
-  padding-bottom: 30px;
-  background-color: #F3E9F1;
-  padding-top: 30px;
-}
-
-.footer__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-@media (min-width: 320px) and (max-width: 600px) {
-  .footer__list {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-
-.footer__list li {
-  margin-left: 100px;
-}
-
+/* Règles qui s'appliquent à la page order.html */
 .order {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -425,6 +398,7 @@ select {
           align-items: center;
 }
 
+/* Règles qui s'appliquent à la page checkout.html */
 .resume {
   padding-top: 35px;
   display: -webkit-box;
@@ -593,6 +567,7 @@ select {
   color: white;
 }
 
+/* Règles qui s'appliquent à la page confirmation.html */
 .conf-main {
   height: 600px;
   display: -webkit-box;
