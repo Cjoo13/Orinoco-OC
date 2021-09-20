@@ -1,5 +1,5 @@
 // Mise en place du DOM qui va contenir les informations de confirmation de commande
-let confirmationAchatTeddy = async () => {
+let confAchatTeddy = async () => {
     
     let confirmationMain = document.getElementById("confMain");
 
@@ -34,4 +34,4 @@ let confirmationAchatTeddy = async () => {
 }
 
 // Déclaration de la fonction de la page
-confirmationAchatTeddy();
+confAchatTeddy();
