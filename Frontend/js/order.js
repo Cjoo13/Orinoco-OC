@@ -112,7 +112,7 @@ let callOneTeddy = async() => {
 let ajoutPanier = async() => {
 
     let clickBtnPanier = document.querySelector(".bouton__panier");
-     await clickBtnPanier.addEventListener("click", () => {
+    clickBtnPanier.addEventListener("click", () => {
 
         // Création de l'article ajouté au panier
         let teddySelec = {

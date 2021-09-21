@@ -82,7 +82,7 @@ let viderPanier = async() => {
 
     // Le panier et le localStorage sont vidés lorsqu'on clique sur le bouton
     let btnViderPanier = document.querySelector(".supprimer__panier");
-    await btnViderPanier.addEventListener("click", () => {
+    btnViderPanier.addEventListener("click", () => {
         localStorage.clear();
         location.reload();
     });
@@ -274,7 +274,7 @@ let envoiForm = async() => {
 }
 
 
-// Déclaration des fonctions de la page
+// Appel des fonctions de la page
 panierTeddy().then(data => viderPanier()).then(data => calculTotal()).then(data => envoiForm());
     
 

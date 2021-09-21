@@ -33,5 +33,5 @@ let confAchatTeddy = async () => {
 
 }
 
-// Déclaration de la fonction de la page
+// Appel de la fonction de la page
 confAchatTeddy();
