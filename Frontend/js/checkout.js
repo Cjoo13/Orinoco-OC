@@ -204,13 +204,7 @@ let envoiForm = async() => {
     // La commande est envoyée lorsqu'on clique sur le bouton
     btnEnvoi.addEventListener("click", (event) => {
         event.preventDefault();
-
-        // Vérification si le champ contient bien une adresse mail, si l'adresse mail n'est pas valide, on affiche un message d'erreur
         let testMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formMailInput.value)
-        if(!testMail){
-            alert("Merci de saisir une adresse mail valide")
-            return false
-        }
 
         // Vérification si tous les champs sont remplis, si ce n'est pas le cas, on affiche un message d'erreur
         if (
@@ -222,8 +216,12 @@ let envoiForm = async() => {
         ) {
             alert("Merci de remplir tous les champs");
 
+         // Vérification si le champ contient bien une adresse mail, si l'adresse mail n'est pas valide, on affiche un message d'erreur
+        } else if(!testMail){
+            alert("Merci de saisir une adresse mail valide")
+            return false
         
-        // Si tous les champs sont remplis et que l'adresse mail est valide, on crée un tableau dans lequel on va mettre l'id des articles du panier
+        // Si tous les champs sont remplis et que l'adresse mail est valide, on crée un tableau dans lequel on va mettre l'id des articles du panier    
         } else {
             let produitsAjoutés = [];
             for(let produit of localS){

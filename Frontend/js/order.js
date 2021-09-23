@@ -91,7 +91,7 @@ let callOneTeddy = async() => {
             divPrix.appendChild(prixProduit);
             oneTeddy.price = oneTeddy.price / 100;
             
-            //Formatage du prix en euros
+            // Formatage du prix en euros
             prixProduit.innerText = new Intl.NumberFormat("fr-FR", {
                 style: "currency",
                 currency: "EUR",
